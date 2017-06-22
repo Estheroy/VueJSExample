@@ -1,0 +1,40 @@
+<script src="https://npmcdn.com/vue/dist/vue.js"></script>
+
+<div id='app'>
+  <ul>
+  <li v-for="(ingredient, i) in ingres">{{ ingredient }} ({{ i }}) </li>
+  </ul>
+  
+  <template v-for="(ingredient, i) in ingres" :key="ingredient">
+  <h3>{{ ingredient }}</h3>
+  <p>{{ i }}</p>
+  </template>
+  
+  <hr>
+  <ul>
+    <li v-for="ppl in persons">
+      <div v-for="(value, key, i) in ppl">
+        ({{i}}). {{key}} : {{value}}
+      </div>
+    </li>
+  </ul>
+  <hr>
+  
+  <span v-for="n in 10">{{n}}</span>
+  <button @click="ingres.push('spices')">
+  Add New
+  </button>
+  </button>
+</div>
+
+
+new Vue({
+  el: '#app',
+  data: {
+    ingres: ['meat', 'fruit', 'cookies'],
+    persons: [
+      {name: 'Max', age: 27, color: 'red'},
+      {name: 'Anna', age: 20, color:'orange'}
+    ]
+  }
+})
