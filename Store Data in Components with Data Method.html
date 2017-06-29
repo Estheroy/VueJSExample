@@ -1,0 +1,32 @@
+<script src="https://unpkg.com/vue"></script>
+
+<div id="app">
+
+  <my-cmp></my-cmp>
+  <hr>
+  <my-cmp></my-cmp>
+</div>
+
+
+
+var data = {status: 'Critical'}
+// if we use a data here, the template return the same data
+// Then we will have two instance but actually one object in the memory
+
+Vue.component('my-cmp',{
+	data: function() {
+  	return {
+    	status: 'Critical'
+    }
+  },
+  template: '<p>Server Status: {{ status }}(<button @click="changeStatus">Change</button>)</p>',
+  methods: {
+  	changeStatus: function() {
+    	this.status = 'Normal';
+    }
+  }
+});
+
+new Vue({
+	el: '#app'
+})
