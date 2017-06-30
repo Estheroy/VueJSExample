@@ -16,7 +16,7 @@
         },
         methods: {
             changeStatus: function() {
-                this.status = 'Normal'
+                this.status = 'Normal';
             }
         }
     }
